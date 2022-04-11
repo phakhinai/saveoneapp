@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/src/pages/home/home_page.dart';
+import 'package:flutterapp/src/pages/main_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -7,11 +8,15 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.kanitTextTheme(
+          Theme.of(context)
+              .textTheme, // If this is not set, then ThemeData.light().textTheme is used.
+        ),
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      home: MainPage(),
     );
   }
 }
